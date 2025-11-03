@@ -8,10 +8,6 @@ public class BibliotecaView {
 
     // METODO PARA MOSTRAR MENU
     public void mostrarMenu() {
-
-        boolean sair = false;
-
-        while (sair != true) {
             System.out.println("\n\n┏━━━━━━━━━━━━━━━━━━━━━━━━━┓");
             System.out.println("┃> Sistema de Biblioteca <┃");
             System.out.println("┃-------------------------┃");
@@ -22,35 +18,48 @@ public class BibliotecaView {
             System.out.println("┃-------------------------┃");
             System.out.println("┃0- Sair                  ┃");
             System.out.println("┗━━━━━━━━━━━━━━━━━━━━━━━━━┛");
+        }
 
-            int opcao = input.nextInt();
 
-            switch (opcao) {
+        // METODO PARA CAPTURAR OPCAO
+        public void capturarOpcao() {
+            BibliotecaView bibliotecaView = new BibliotecaView();
 
-                case 1: {
-                    break;
-                }
+            boolean sair = false;
 
-                case 2: {
-                    break;
-                }
+            while(sair != true) {
 
-                case 3: {
-                    break;
-                }
+                bibliotecaView.mostrarMenu();
 
-                case 4: {
-                    break;
-                }
+                int opcao = input.nextInt();
 
-                case 0: {
-                    System.out.println("\n\n┏━━━━━━━━━┓");
-                    System.out.println("┃Saindo...┃");
-                    System.out.println("┗━━━━━━━━━┛");
-                    sair = true;
+                switch (opcao) {
+
+                    case 1: {
+                        break;
+                    }
+
+                    case 2: {
+                        break;
+                    }
+
+                    case 3: {
+                        break;
+                    }
+
+                    case 4: {
+                        break;
+                    }
+
+                    case 0: {
+                        System.out.println("\n\n┏━━━━━━━━━┓");
+                        System.out.println("┃Saindo...┃");
+                        System.out.println("┗━━━━━━━━━┛");
+                        sair = true;
+                    }
                 }
             }
 
         }
     }
-}
+
