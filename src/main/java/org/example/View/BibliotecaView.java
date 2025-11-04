@@ -1,5 +1,6 @@
 package org.example.View;
 
+import org.example.Service.EmprestimoService;
 import org.example.Service.LivroService;
 
 import java.util.Scanner;
@@ -9,6 +10,7 @@ public class BibliotecaView {
     static BibliotecaView bibliotecaView = new BibliotecaView();
 
     LivroService livroService = new LivroService();
+    EmprestimoService emprestimoService = new EmprestimoService();
 
 
 
@@ -45,8 +47,8 @@ public class BibliotecaView {
                     }
 
                     case 2: {
+                        emprestimoService.cadastrarEmprestimo();
                         bibliotecaView.mostrarMenu();
-
                         break;
                     }
 
