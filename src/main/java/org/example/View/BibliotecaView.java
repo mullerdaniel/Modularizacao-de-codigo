@@ -1,10 +1,14 @@
 package org.example.View;
 
+import org.example.Service.LivroService;
+
 import java.util.Scanner;
 
 public class BibliotecaView {
     static Scanner input = new Scanner(System.in);
     static BibliotecaView bibliotecaView = new BibliotecaView();
+
+    LivroService livroService = new LivroService();
 
 
 
@@ -35,6 +39,7 @@ public class BibliotecaView {
                 switch (opcao) {
 
                     case 1: {
+                        livroService.cadastrarLivro();
                         bibliotecaView.mostrarMenu();
                         break;
                     }
@@ -51,6 +56,7 @@ public class BibliotecaView {
                     }
 
                     case 4: {
+                        bibliotecaView.menuConsulta();
                         bibliotecaView.mostrarMenu();
                         break;
                     }
@@ -59,7 +65,7 @@ public class BibliotecaView {
                         System.out.println("\n\n┏━━━━━━━━━┓");
                         System.out.println("┃Saindo...┃");
                         System.out.println("┗━━━━━━━━━┛");
-                        sair = true;
+                        sair = false;
                         break;
                     }
 
@@ -72,5 +78,49 @@ public class BibliotecaView {
             }
 
         }
+
+
+        // MENU DE CONSULTAS
+        public void menuConsulta() {
+                System.out.println("\n\n┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
+                System.out.println("┃>           Consultas           <┃");
+                System.out.println("┃---------------------------------┃");
+                System.out.println("┃1- Consultar Todos os Livros     ┃");
+                System.out.println("┃2- Consultar Todos os Emprestimo ┃");
+                System.out.println("┃---------------------------------┃");
+                System.out.println("┃0- Voltar                        ┃");
+                System.out.println("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n");
+                int opcao = input.nextInt();
+
+                switch (opcao) {
+
+                    case 1: {
+                        bibliotecaView.menuConsulta();
+                        break;
+                    }
+
+                    case 2: {
+                        bibliotecaView.menuConsulta();
+                        break;
+                    }
+
+                    case 0: {
+                        System.out.println("\n\n┏━━━━━━━━━━━┓");
+                        System.out.println("┃Voltando...┃");
+                        System.out.println("┗━━━━━━━━━━━┛");
+                        bibliotecaView.mostrarMenu();
+                        break;
+                    }
+
+                    default: {
+                        System.out.println("\nOpção incorreta!");
+                        bibliotecaView.menuConsulta();
+                        break;
+                    }
+                }
+
+
+
+    }
     }
 
