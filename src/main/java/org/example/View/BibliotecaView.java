@@ -23,9 +23,10 @@ public class BibliotecaView {
             System.out.println("┃> Sistema de Biblioteca <┃");
             System.out.println("┃-------------------------┃");
             System.out.println("┃1- Cadastrar Livro       ┃");
-            System.out.println("┃2- Cadastrar Emprestimo  ┃");
-            System.out.println("┃3- Devolução de Livro    ┃");
-            System.out.println("┃4- Consultar             ┃");
+            System.out.println("┃2- Cadastrar Usuario     ┃");
+            System.out.println("┃3- Cadastrar Emprestimo  ┃");
+            System.out.println("┃4- Devolução de Livro    ┃");
+            System.out.println("┃5- Consultar             ┃");
             System.out.println("┃-------------------------┃");
             System.out.println("┃0- Sair                  ┃");
             System.out.println("┗━━━━━━━━━━━━━━━━━━━━━━━━━┛");
