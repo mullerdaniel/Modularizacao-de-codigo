@@ -121,6 +121,11 @@ public class BibliotecaView {
                     }
 
                     case 2: {
+                        try {
+                            emprestimoService.listarEmprestimos();
+                        } catch (SQLException e) {
+                            throw new RuntimeException(e);
+                        }
                         bibliotecaView.menuConsulta();
                         break;
                     }

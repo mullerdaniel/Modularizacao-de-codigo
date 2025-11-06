@@ -87,4 +87,23 @@ public class EmprestimoService {
 
     }
 
+
+    // METODO PARA LISTAR TODOS OS EMPRESTIMOS
+    public void listarEmprestimos() throws SQLException {
+        System.out.println("\n\n┏━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
+        System.out.println("┃> Lista dos Emprestimos <┃");
+        System.out.println("┗━━━━━━━━━━━━━━━━━━━━━━━━━┛\n");
+        List<Emprestimos> emprestimos = emprestimoRepository.listarEmprestimos();
+
+        if(emprestimos.isEmpty()) {
+            System.out.println("Não há empretimos cadastrados!");
+
+        }else {
+            System.out.println("\n\nEmprestimos:");
+            for (Emprestimos emprestimo : emprestimos) {
+                System.out.println("ID: " + emprestimo.getId() + ", livro_id: " + emprestimo.getLivro_id() + ", usuario_id: " + emprestimo.getUsuario_id() + ", Data do Emprestimo: " + emprestimo.getData_emprestimo() + ", Data de Devolução: " + emprestimo.getData_devolucao());
+            }
+        }
+    }
+
 }
