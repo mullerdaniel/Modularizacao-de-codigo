@@ -12,15 +12,13 @@ public class DevolucaoRepository {
 
     // METODO PARA REGISTRAR DEVOLUÇÃO DO LIVRO
     public void registrarDevolucaoDeLivro(Emprestimos emprestimos) throws SQLException {
-        String query = "INSERT INTO emprestimos (livro_id, usuario_id, data_emprestimo, data_devolucao) VALUES (?,?,?,?)";
+        String query = "UPDATE emprestimos SET data_devolucao = ? WHERE id = ?";
 
         try(Connection conn = Conexao.conectar();
             PreparedStatement stmt = conn.prepareStatement(query)) {
 
-            stmt.setInt(1, emprestimos.getLivro_id());
-            stmt.setInt(2, emprestimos.getUsuario_id());
-            stmt.setTimestamp(3,java.sql.Timestamp.valueOf(emprestimos.getData_emprestimo()));
-            stmt.setTimestamp(4, java.sql.Timestamp.valueOf(emprestimos.getData_devolucao()));
+            stmt.setTimestamp(1, java.sql.Timestamp.valueOf(emprestimos.getData_devolucao()));
+            stmt.setInt(2, emprestimos.getId());
             stmt.executeUpdate();
         }
     }

@@ -1,5 +1,6 @@
 package org.example.View;
 
+import org.example.Service.DevolucaoService;
 import org.example.Service.EmprestimoService;
 import org.example.Service.LivroService;
 import org.example.Service.UsuarioService;
@@ -14,6 +15,7 @@ public class BibliotecaView {
     LivroService livroService = new LivroService();
     EmprestimoService emprestimoService = new EmprestimoService();
     UsuarioService usuarioService = new UsuarioService();
+    DevolucaoService devolucaoService = new DevolucaoService();
 
 
 
@@ -67,6 +69,11 @@ public class BibliotecaView {
                     }
 
                     case 4: {
+                        try {
+                            devolucaoService.cadastrarDevolucao();
+                        } catch (SQLException e) {
+                            throw new RuntimeException(e);
+                        }
                         bibliotecaView.mostrarMenu();
                         break;
                     }

@@ -31,6 +31,10 @@ public class Emprestimos {
     public Emprestimos(int livroId, int usuarioId, String dataEmpretismo, String dataDevolucao) {
     }
 
+    public Emprestimos() {
+
+    }
+
     // GETs e SETs
     public int getId() {
         return id;

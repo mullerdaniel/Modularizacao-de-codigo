@@ -8,8 +8,6 @@ import org.example.Repository.LivroRepository;
 import org.example.Repository.UsuarioRepository;
 
 import java.sql.SQLException;
-import java.sql.Timestamp;
-import java.time.LocalDate;
 import java.util.List;
 import java.util.Scanner;
 
@@ -89,10 +87,10 @@ public class EmprestimoService {
 
 
     // METODO PARA LISTAR TODOS OS EMPRESTIMOS
-    public void listarEmprestimos() throws SQLException {
-        System.out.println("\n\n┏━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
+    public List<Emprestimos> listarEmprestimos() throws SQLException {
+        System.out.println("\n\n┏━━━━━━━━━━━━━━━━━━━━━━━━━┓");
         System.out.println("┃> Lista dos Emprestimos <┃");
-        System.out.println("┗━━━━━━━━━━━━━━━━━━━━━━━━━┛\n");
+        System.out.println("┗━━━━━━━━━━━━━━━━━━━━━━━━━┛");
         List<Emprestimos> emprestimos = emprestimoRepository.listarEmprestimos();
 
         if(emprestimos.isEmpty()) {
@@ -104,6 +102,7 @@ public class EmprestimoService {
                 System.out.println("ID: " + emprestimo.getId() + ", livro_id: " + emprestimo.getLivro_id() + ", usuario_id: " + emprestimo.getUsuario_id() + ", Data do Emprestimo: " + emprestimo.getData_emprestimo() + ", Data de Devolução: " + emprestimo.getData_devolucao());
             }
         }
+        return emprestimos;
     }
 
 }
