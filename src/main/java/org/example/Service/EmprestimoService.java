@@ -8,6 +8,7 @@ import org.example.Repository.LivroRepository;
 import org.example.Repository.UsuarioRepository;
 
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Scanner;
@@ -63,11 +64,11 @@ public class EmprestimoService {
         int usuario_id = input.nextInt();
 
 
-        String data_empretismo = LocalDate.now().toString();
-        String data_devolucao = null;
+        java.time.LocalDateTime data_empretismo = java.time.LocalDateTime.now();
+        java.time.LocalDateTime data_devolucao = null;
 
 
-        Emprestimos emprestimos = new Emprestimos(livro_id, usuario_id, data_empretismo, null);
+        Emprestimos emprestimos = new Emprestimos(livro_id, usuario_id, data_empretismo, data_devolucao);
 
         try {
             System.out.println("\n┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");

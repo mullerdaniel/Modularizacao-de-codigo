@@ -111,6 +111,11 @@ public class BibliotecaView {
                 switch (opcao) {
 
                     case 1: {
+                        try {
+                            livroService.listarLivros();
+                        } catch (SQLException e) {
+                            throw new RuntimeException(e);
+                        }
                         bibliotecaView.menuConsulta();
                         break;
                     }

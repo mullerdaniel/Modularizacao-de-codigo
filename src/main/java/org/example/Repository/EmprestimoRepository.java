@@ -19,7 +19,14 @@ public class EmprestimoRepository {
 
             stmt.setInt(1, emprestimos.getLivro_id());
             stmt.setInt(2, emprestimos.getUsuario_id());
-            stmt.setTimestamp(3,java.sql.Timestamp.valueOf(emprestimos.getData_emprestimo()));
+            stmt.setTimestamp(3, java.sql.Timestamp.valueOf(emprestimos.getData_emprestimo()));
+            java.time.LocalDateTime dataDevolucao = emprestimos.getData_devolucao();
+
+            if (dataDevolucao != null) {
+                stmt.setTimestamp(4, java.sql.Timestamp.valueOf(dataDevolucao));
+            } else {
+                stmt.setTimestamp(4, null);
+            }
             stmt.executeUpdate();
         }
     }
