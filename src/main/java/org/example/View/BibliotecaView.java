@@ -2,7 +2,9 @@ package org.example.View;
 
 import org.example.Service.EmprestimoService;
 import org.example.Service.LivroService;
+import org.example.Service.UsuarioService;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class BibliotecaView {
@@ -11,6 +13,7 @@ public class BibliotecaView {
 
     LivroService livroService = new LivroService();
     EmprestimoService emprestimoService = new EmprestimoService();
+    UsuarioService usuarioService = new UsuarioService();
 
 
 
@@ -47,17 +50,27 @@ public class BibliotecaView {
                     }
 
                     case 2: {
-                        emprestimoService.cadastrarEmprestimo();
+                        usuarioService.cadastrarUsuario();
                         bibliotecaView.mostrarMenu();
                         break;
                     }
 
                     case 3: {
+                        try {
+                            emprestimoService.cadastrarEmprestimo();
+                        } catch (SQLException e) {
+                            throw new RuntimeException(e);
+                        }
                         bibliotecaView.mostrarMenu();
                         break;
                     }
 
                     case 4: {
+                        bibliotecaView.mostrarMenu();
+                        break;
+                    }
+
+                    case 5: {
                         bibliotecaView.menuConsulta();
                         bibliotecaView.mostrarMenu();
                         break;

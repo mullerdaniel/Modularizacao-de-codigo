@@ -28,6 +28,9 @@ public class Emprestimos {
         this.data_devolucao = data_devolucao;
     }
 
+    public Emprestimos(int livroId, int usuarioId, String dataEmpretismo, String dataDevolucao) {
+    }
+
     // GETs e SETs
     public int getId() {
         return id;

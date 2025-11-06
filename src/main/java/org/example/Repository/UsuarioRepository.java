@@ -13,6 +13,20 @@ import java.util.List;
 public class UsuarioRepository {
 
 
+    //CADASTRAR USUARIOS
+    public void cadastrarUsuario(Usuarios usuarios) throws SQLException {
+        String query = "INSERT INTO Usuarios (nome, email) VALUES (?,?)";
+
+        try(Connection conn = Conexao.conectar();
+            PreparedStatement stmt = conn.prepareStatement(query)) {
+
+            stmt.setString(1, usuarios.getNome());
+            stmt.setString(2, usuarios.getEmail());
+            stmt.executeUpdate();
+        }
+    }
+
+
     // LISTA DE TODOS USUARIOS
     public List<Usuarios> listarUsuarios() throws SQLException {
         List<Usuarios> usuarios = new ArrayList<>();
