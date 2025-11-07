@@ -74,6 +74,12 @@ public class EmprestimoService {
             System.out.println("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛");
             emprestimoRepository.registrarEmprestimoDeLivro(emprestimos);
 
+            Livros livro = new Livros();
+            livro.setId(livro_id);
+            livro.setDisponivel(false);
+            livroRepository.atualizarStatus(livro);
+
+
         } catch (SQLException e) {
             System.out.println("\n┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
             System.out.println("┃> Erro ao Cadastrar Empretimo! <┃");

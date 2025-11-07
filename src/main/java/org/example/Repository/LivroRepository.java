@@ -28,6 +28,20 @@ public class LivroRepository {
     }
 
 
+    // METODO PARA ATUALIZAR STATUS DO LIVRO PARA DISPONIVEL
+    public void atualizarStatus(Livros livros) throws SQLException {
+        String query = "UPDATE livros SET disponivel = ? WHERE id = ?";
+
+        try(Connection conn = Conexao.conectar();
+            PreparedStatement stmt = conn.prepareStatement(query)) {
+
+            stmt.setBoolean(1, livros.isDisponivel());
+            stmt.setInt(2, livros.getId());
+            stmt.executeUpdate();
+        }
+    }
+
+
     // METODO PARA LISTAR TODOS OS LIVROS CADASTRADOS
     public List<Livros> listarLivros() throws SQLException {
         List<Livros> livros = new ArrayList<>();

@@ -25,6 +25,13 @@ public class Livros {
         this.disponivel = disponivel;
     }
 
+    public Livros() {
+
+    }
+
+    public Livros(int livroId, Boolean disponivel) {
+    }
+
     // GETs e SETs
     public int getId() {
         return id;
