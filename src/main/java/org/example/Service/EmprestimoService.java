@@ -28,11 +28,13 @@ public class EmprestimoService {
         // LISTAR LIVROS
         List<Livros> listarLivros = livroRepository.listarLivros();
 
+        // CASO NÃO TENHA LIVROS CADASTRADOS
         if (listarLivros.isEmpty()) {
             System.out.println("\nNão existem livros cadastrados.");
             return;
         }
 
+        // LOOP PARA LISTAR TODOS OS LIVROS CADASTRADOS
         System.out.println("\nLivros Cadastrados: ");
         for (int i = 0; i < listarLivros.size(); i++) {
             Livros livros = listarLivros.get(i);

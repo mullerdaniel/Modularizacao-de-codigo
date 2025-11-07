@@ -26,8 +26,10 @@ public class DevolucaoService {
         System.out.println("┃>   Cadastrar Devolução   <┃");
         System.out.println("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━┛");
 
+        // LISTAR TODOS OS EMPRESTIMOS
         List<Emprestimos> emprestimos = emprestimoService.listarEmprestimos();
 
+        // VERIFICAR SE NÃO HÁ EMPRESTIMOS REGISTRADOS
         if (emprestimos.isEmpty()) {
             System.out.println("\nNão há empréstimos registrados!");
             return;
@@ -49,11 +51,15 @@ public class DevolucaoService {
             return;
         }
 
+        // PEGAR A DATA ATUAL DA DEVOLUÇÃO
         emprestimoSelecionado.setData_devolucao(LocalDateTime.now());
 
+
+        // TRY E CATCH CASO DE CERTO A DEVOLUÇÃO SERA REGISTRADA COM SUCESSO CASO O CONTRARIO VAI DAR ERRO.
         try {
             devolucaoRepository.registrarDevolucaoDeLivro(emprestimoSelecionado);
 
+            // ATUALIZAR O STATUS NO ESTOQUE DOS LIVROS
             Livros livro = new Livros();
             livro.setId(emprestimoSelecionado.getLivro_id());
             livro.setDisponivel(true);
